@@ -1,30 +1,5 @@
-<style>
-/* You can optimize the font size of your presentation inline like so: */
-  .reveal {
-    font-size: 45px
-  }
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
-  /* Save some space on the slides */
-  margin: 0 0 20px 0;
-}
-</style>
-
-<!-- .slide: style="text-align: center !important;font-size: 80%;"  -->
-<!-- .slide: data-background-image="dist/theme/images/title-white.svg"  -->
-
-<h1 class="title" style="margin-top: 0; font-size: 130%">
-    <span class="title-accent">//</span> 
-    Code ➡️ Cluster:<br/>Boosting development with a<br/> local kubernetes ops platform
-</h1>
-<p style="margin-top: 0">Yannick Christian Thomas, Johannes Schnatterer 
-<br/>Cloudogu GmbH</p> 
-<a style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland24">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="15%" viewBox="0 0 1063.75 1241.0416666667"><g transform="scale(44.322916666667)" fill="#23a3dd"><path d="M1.3,28L22.6,28c0.7,0,1.3-0.6,1.3-1.3L24,1.4c0-0.7-0.6-1.3-1.3-1.3L1.4,0C0.7,0,0.1,0.6,0,1.3L0,26.6 C-0.1,27.4,0.5,28,1.3,28z M1,6c0-0.6,0.5-1,1-1L22,5c0.6,0,1,0.5,1,1L23,26c0,0.6-0.5,1-1,1L2,27c-0.6,0-1-0.5-1-1L1,6z"/></g>
+<a class="floatRight" style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland24">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="80%" viewBox="0 0 1063.75 1241.0416666667"><g transform="scale(44.322916666667)" fill="#23a3dd"><path d="M1.3,28L22.6,28c0.7,0,1.3-0.6,1.3-1.3L24,1.4c0-0.7-0.6-1.3-1.3-1.3L1.4,0C0.7,0,0.1,0.6,0,1.3L0,26.6 C-0.1,27.4,0.5,28,1.3,28z M1,6c0-0.6,0.5-1,1-1L22,5c0.6,0,1,0.5,1,1L23,26c0,0.6-0.5,1-1,1L2,27c-0.6,0-1-0.5-1-1L1,6z"/></g>
     <g transform="translate(0,177.29166666667)" fill="#23a3dd">
 <g transform="translate(290.375,106.375) scale(3.9483333333333)"><rect width="6" height="6"/></g>
         <g transform="translate(336.375,106.375) scale(3.9483333333333)"><rect width="6" height="6"/></g>
@@ -637,212 +612,112 @@
         <tspan>Slides</tspan>
       </text>
 </svg>
-
 </a>
 
-<div style="font-size:80%">
-<a href='https://www.linkedin.com/in/yannickchristhomas' target="_blank"><i class='fab fa-linkedin'></i> in/yannickchristhomas</a>
-<a href='https://www.linkedin.com/in/jschnatterer' target="_blank" style="margin-left: 50px"><i class='fab fa-linkedin'></i> in/jschnatterer</a>
-<a href='https://floss.social/@schnatterer' style="margin-left: 50px"><i class='fab fa-mastodon'></i> @schnatterer@floss.social</a>
-</div>
+# Meet GOP <!-- .element style="font-size: 200%" -->
+<!-- .slide: style="font-size:70%"  -->
 
-<div class="title-version">
-<!--VERSION-->
-</div>
+a GitOps-based operational stack (platform)
 
-<p style="font-size: 70%">
-<a id="pdf" title="PDF" class="state-background"  
-  href="pdf/Code - Cluster Boosting development with a local kubernetes ops platform.pdf">
-       <i class="far fa-file-pdf"></i>
-</a>
-</p>
+<span style="font-size: 250%">
+<i class="fab fa-linux" style="color: #FFD133;"></i> 
+<i class="fab fa-windows" style="color: #2279D1;"></i> 
+<i class="fab fa-apple" style="color: black;"></i>
+<span style="margin: 0 30px">➕</span>
+<i class="fab fa-docker" style="color: #1D63ED;"></i></span>
 
+```bash
+VERSION='0.3.0'
+bash <(curl -s \
+  "https://raw.githubusercontent.com/cloudogu/gitops-playground/$VERSION/scripts/init-cluster.sh") \
+   && docker run --rm -t -u $(id -u) \
+    -v ~/.config/k3d/kubeconfig-gitops-playground.yaml:/home/.kube/config \
+    --net=host \
+    ghcr.io/cloudogu/gitops-playground:$VERSION --yes --base-url=http://localhost --ingress-nginx \
+      --argocd --monitoring --vault=dev --mailhog
+```
 
-
-# Agenda
-
-1. [Intro](#intro)
-1. [Meet GOP](#gop)
-1. [Exercises](#exercises), [Getting Started](#getting-started)
-
-
-
-<!-- .slide: data-background-color="#27A4DE" -->
-<!-- .slide: data-background-image="images/cloudogu-background.png"   -->
-<!-- .slide: style="color: White" -->
-<!-- .slide: id="intro" -->
-
-<span style="position: absolute; top: 20%; width: 100%">
-<div class="container">
-  <div class="column">
-    <strong>Yannick Christian Thomas</strong>
-    <p>Cloud Engineer</p>
-  </div>
-  <div class="column">
-    <strong>Johannes Schnatterer</strong>
-    <p>Technical Lead</p>
-  </div>
-</div>
-<p style="align">Consulting + Infrastructure Team</p>
-</span>
-<a href="https://dpunkt.de/produkt/gitops/"><img data-src="images/Cubukcuoglu_GitOps.png" class="floatRight" width="25%;" style="margin-top: 25%"/></a>
+<i class="fab fa-github"></i> [cloudogu/gitops-playground](https://github.com/cloudogu/gitops-playground)
 
 
 
+### 💡 `k3d` hints
 
-<!-- .slide: data-auto-animate style="text-align: center; font-size: 140%;" -->
-# 🙋 What is your profession?
+```bash
+# Cleanup
+k3d cluster rm gitops-playground
+# Or 
+docker rm $(docker ps -a -q --filter "name=^k3d-gitops-playground")
+```
 
-🤓 Software Engineer / Developer
-
-
-
-<!-- .slide: data-auto-animate style="text-align: center; font-size: 140%;" -->
-# 🙋 What is your profession?
-
-🛠️ Platform Engineer / Ops person
-
-
-
-<!-- .slide: data-auto-animate style="text-align: center; font-size: 140%;" -->
-# 🙋 What is your profession?
-
-🤷 None of the above
+```bash
+# Pause to save resources
+k3d cluster stop gitops-playground
+# Continue
+k3d cluster start gitops-playground
+```
 
 
 
-<!-- .slide: style="text-align: center;font-size: 130%;" -->
-# 🙋 Who uses Kubernetes for local development? <!-- .element: style="margin-top: 50px" class="r-fit-text"-->
-<br/>
-<tagcloud large>
-k3d
-Minkube
-Microk8s
-k3s
-KIND
-Docker Desktop
-k0s
-Rancher Desktop
-</tagcloud>
+<!-- .slide: data-background-image="images/gitops-playground-local.drawio.svg" data-background-size="contain" -->
 
 
 
-<!-- .slide: style="text-align: center;" data-background-color="black"-->
-
-<img data-src="images/tweet-hightower-k8s-platform.png" width="190%"></img>
-
-<span style="font-size: 30%"> <i class="fab fa-twitter"></i> <a href="https://twitter.com/kelseyhightower/status/935252923721793536">twitter.com/kelseyhightower/status/935252923721793536</a></span>
+<!-- .slide: data-background-image="images/gitops-playground-features.drawio.svg" data-background-size="contain" -->
 
 
 
-<!-- .slide: style="text-align: center" data-background-color="#27A4DE" -->
-# Start a local k8s cluster with one command <!-- .element style="color: white;" class="r-fit-text" -->
+## `scripts/init-cluster.sh`
+<!-- .slide: style="font-size:79%"  -->
 
-<img data-src="images/k3d-cluster-create.gif" width="90%"/>
+```bash
+k3d cluster create gitops-playground \
+  # Mount port for ingress
+  -p 80:80@server:0:direct \
+  # Pin image for reproducibility
+  --image=rancher/k3s:v1.29.1-k3s2 \
+  # Disable built-in ingress controller, because we want to use the same one locally and in prod
+  --k3s-arg=--disable=traefik@server:0 \
+  # Allow node ports < 30000
+  --k3s-arg=--kube-apiserver-arg=service-node-port-range=8010-65535@server:0 \
+  # Hacks to make Docker available in Jenkins
+  -v /var/run/docker.sock:/var/run/docker.sock@server:0 \
+  -v /etc/group:/etc/group@server:0 -v /tmp:/tmp@server:0 \
+  -p 30000:30000@server:0:direct
 
-
-
-<!-- .slide: style="text-align: center;" -->
-# Next, start the platform
-
-<div class="fragment">
-<img data-src="images/OCI-logo.svg" style="height: 2em; vertical-align: middle;" />
-<img data-src="images/argo-icon.svg" style="height: 2em; vertical-align: middle;" />
-<img data-src="images/Git-Icon-1788C.svg" style="height: 2em; vertical-align: middle;"/>
-<img data-src="images/grafana.svg" style="height: 2em; vertical-align: middle;"/>
-<img data-src="images/prometheus-logo.svg" style="height: 2em; vertical-align: middle;"/>
-<img data-src="images/vault-logo.svg" style="height: 2em; vertical-align: middle;"/>
-<img data-src="images/eso-round-logo.svg" style="height: 2em; vertical-align: middle;"/>
-...
-</div>
-
-<div class="fragment" style="margin-top: 20px">
-    <img style="border-radius: 5px;" width="45%" data-src="images/spongebob-squarepants-cloud-engineer.gif"/>
-    <div style="font-size: 10%"><a href="https://tenor.com/view/spongebob-squarepants-spongebob-think-thinking-gif-4280214517394111861">🌐 tenor.com/view/spongebob-squarepants-spongebob-think-thinking-gif-4280214517394111861</a></div>
-</div>
-
-Note:
-* More tools: 
-  * Ingress Controller, DNS, Certificates
-  * CI
-  * Logging, Tracing
-  * Progressive Delivery tools
-  * Backup tools
+# Write kubeconfig to ~/.config/k3d/kubeconfig-gitops-playground.yaml
+k3d kubeconfig write gitops-playground
+```
 
 
 
-<!-- .slide: data-auto-animate style="font-size: 135%;" -->
-# So, let's write a *little* script... 
+## `docker run ...`
+<!-- .slide: style="font-size:80%"  -->
+
+```bash
+docker run
+  # Remove container after running, keeping your device clean 
+  # (remove in case of error to preserve logs)
+  --rm 
+  # Colorful output, please
+  -t
+  # Mount kubeconfig for k3d
+  -v ~/.config/k3d/kubeconfig-gitops-playground.yaml:/home/.kube/config \
+  # Run as current user to avoid  permission issues with kubeconfig
+  -u $(id -u) \
+  # Make k3d cluster available on 0.0.0.0 as described in kubeconfig
+  --net=host \
+# Image, pin for reproducibility
+ghcr.io/cloudogu/gitops-playground:$VERSION \
+  #Params for gop:
+  --yes --base-url=http://localhost --ingress-nginx --argocd --monitoring --vault=dev --mailhog
+```
 
 
 
+## `ghcr.io/cloudogu/gitops-playground`
 
-
-<!-- .slide: style="text-align: center;" data-background-color="#0D1117"-->
-
-<img data-src="images/hundreds-of-LOC-in-bash.png"/>
-<span style="font-size: 900%; position: absolute; left: 60%;" class="fragment">😰</span>
-
-
-
-# Why not start the platform with one command? <!-- .element class="r-fit-text" -->
-
-<style>
-/* Argo CD, Prometheus, Grafana and SCMM Styles */
-.button.is-primary.is-hovered, .button.is-primary:hover {
-  background-color: #4c9b9d;
-}
-.button.is-primary {
-color: #dbdbdb;
-    background-color: #55abad;
-  border-color: transparent;
-  color: #dbdbdb;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  height: 2.5rem;
-  min-width: 2.5rem;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-}
-.argo-button--base { color: #F8FBFB; background-color: #6D7F8B; }
-.argo-button { cursor: pointer; position: relative; display: inline-block; vertical-align: middle; padding: 8px 18px; 
-    font-size: 13px; font-weight: 500; line-height: 1.4; text-align: center; border-radius: 24px; user-select: none; 
-    transition: background-color .2s, border .2s, color .2s; text-transform: uppercase; }
-
-.toolbar-link:hover:not(.disabled) {
-  color: #1563ff;
-}
-.toolbar-link {
-  background-color: #ebeef2;
-}
-.toolbar-link:active {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.css-td06pi-button {
-  display: inline-flex;
-  -moz-box-align: center;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "Inter", "Helvetica", "Arial", sans-serif;
-  padding: 0px 15px;
-  height: 32px;
-  line-height: 30px;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 2px;
-  background: rgb(61, 113, 217);
-  color: rgb(255, 255, 255);
-  border: 1px solid transparent;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-.css-td06pi-button:hover {
-  background: rgb(90, 134, 222);
-  color: rgb(255, 255, 255);
-  box-shadow: rgba(1, 4, 9, 0.75) 0px 1px 2px;
-  border-color: transparent;
-</style>
+* OCI image <img data-src="images/OCI-logo.svg" class="floatRight" style="height: 2em; vertical-align: middle;" />
+* Contains logic to install and configure the tools <img src="images/Groovy-logo.svg" class="floatRight" style="height: 2em; vertical-align: middle;" />
+* App written in Groovy (and bash 😰) 
+* Additional resources to run e.g. in air-gapped envs <img src="images/Gnu-bash-logo.svg" class="floatRight" style="height: 2em; vertical-align: middle;" />

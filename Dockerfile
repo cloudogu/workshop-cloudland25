@@ -5,6 +5,8 @@ ENV TITLE='Code -> Cluster: Boosting development with a local kubernetes ops pla
 ENV THEME_CSS='cloudogu.css'
 #ENV THEME_CSS='cloudogu-black.css'
 ENV WIDTH='1280'
+ENV ADDITIONAL_PLUGINS='RevealTagCloud' 
+ENV ADDITIONAL_SCRIPT='<script src="plugin/tagcloud/tagcloud.js"></script>'
 USER root
 # Remove demo slides before templating
 RUN rm -rf  /reveal/docs
