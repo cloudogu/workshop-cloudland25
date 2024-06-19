@@ -644,18 +644,26 @@ bash <(curl -s \
 ### 💡 `k3d` hints
 
 ```bash
+# Get an overview
+kubectl get ingress -A # --context k3d-gitops-playground
+# Also possible without installing kubectl
+docker exec  k3d-gitops-playground-server-0 kubectl get ingress -A
+```
+
+```bash
+# Pause to save resources
+k3d cluster stop gitops-playground
+# Continue later
+k3d cluster start gitops-playground
+```
+
+```bash
 # Cleanup
 k3d cluster rm gitops-playground
 # Or 
 docker rm $(docker ps -a -q --filter "name=^k3d-gitops-playground")
 ```
 
-```bash
-# Pause to save resources
-k3d cluster stop gitops-playground
-# Continue
-k3d cluster start gitops-playground
-```
 
 
 
