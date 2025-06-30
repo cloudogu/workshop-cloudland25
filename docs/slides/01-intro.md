@@ -21,9 +21,9 @@
     <span class="title-accent">//</span> 
     Code ➡️ Cluster:<br/>Boosting development with a<br/> local kubernetes ops platform
 </h1>
-<p style="margin-top: 0">Yannick Christian Thomas, Johannes Schnatterer 
+<p style="margin-top: 0">Thomas Michael, Johannes Schnatterer 
 <br/>Cloudogu GmbH</p> 
-<a style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland24">
+<a style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland25">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="15%" viewBox="0 0 1063.75 1241.0416666667"><g transform="scale(44.322916666667)" fill="#23a3dd"><path d="M1.3,28L22.6,28c0.7,0,1.3-0.6,1.3-1.3L24,1.4c0-0.7-0.6-1.3-1.3-1.3L1.4,0C0.7,0,0.1,0.6,0,1.3L0,26.6 C-0.1,27.4,0.5,28,1.3,28z M1,6c0-0.6,0.5-1,1-1L22,5c0.6,0,1,0.5,1,1L23,26c0,0.6-0.5,1-1,1L2,27c-0.6,0-1-0.5-1-1L1,6z"/></g>
     <g transform="translate(0,177.29166666667)" fill="#23a3dd">
 <g transform="translate(290.375,106.375) scale(3.9483333333333)"><rect width="6" height="6"/></g>
@@ -641,7 +641,7 @@
 </a>
 
 <div style="font-size:80%">
-<a href='https://www.linkedin.com/in/yannickchristhomas' target="_blank"><i class='fab fa-linkedin'></i> in/yannickchristhomas</a>
+<a href='https://www.linkedin.com/in/thomas-michael-30b941186/' target="_blank"><i class='fab fa-linkedin'></i> in/thomas-michael-30b941186</a>
 <a href='https://www.linkedin.com/in/jschnatterer' target="_blank" style="margin-left: 50px"><i class='fab fa-linkedin'></i> in/jschnatterer</a>
 <a href='https://floss.social/@schnatterer' style="margin-left: 50px"><i class='fab fa-mastodon'></i> @schnatterer@floss.social</a>
 </div>
@@ -675,7 +675,7 @@
 <span style="position: absolute; top: 20%; width: 100%">
 <div class="container">
   <div class="column">
-    <strong>Yannick Christian Thomas</strong>
+    <strong>Thomas Michael</strong>
     <p>Cloud Engineer</p>
   </div>
   <div class="column">

@@ -632,7 +632,7 @@ Thanks for helping us improve 🙏
 <!-- .slide: id="last" -->
 <!-- .slide: style="text-align: center !important;"  -->
 
-<div>Yannick Christian Thomas</div>
+<div>Thomas Michael</div>
 <div>Johannes Schnatterer</div>
 <div>Cloudogu GmbH</div>
 
@@ -640,13 +640,13 @@ Thanks for helping us improve 🙏
 Please reach out for all questions or feedback!
 </div>
 <div style="font-size:80%">
-<span>📧 yannick.thomas<i class="fas fa-at"></i>cloudogu.com</span>
+<span>📧 thomas.michael<i class="fas fa-at"></i>cloudogu.com</span>
 <span style="margin-left: 50px">📧 johannes.schnatterer<i class="fas fa-at"></i>cloudogu.com</span>
 </div>
 
 
 <p style="font-size:80%">
-<a href='https://www.linkedin.com/in/yannickchristhomas' target="_blank"><i class='fab fa-linkedin'></i> in/yannickchristhomas</a>
+<a href='https://www.linkedin.com/in/thomas-michael-30b941186' target="_blank"><i class='fab fa-linkedin'></i> in/thomas-michael-30b941186</a>
 <a href='https://www.linkedin.com/in/jschnatterer' target="_blank" style="margin-left: 50px"><i class='fab fa-linkedin'></i> in/jschnatterer</a>
 <a href='https://floss.social/@schnatterer' style="margin-left: 50px"><i class='fab fa-mastodon'></i> @schnatterer@floss.social</a>
 </p>
