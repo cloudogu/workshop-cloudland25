@@ -83,7 +83,7 @@ Then have a closer look at the concepts behind this <a class="navigate-next">ðŸ‘
 <img data-src="images/gop-alerting-argocd.svg" width="20%" class="floatLeft"/>
 
 <div><img data-src="images/argo-icon.svg" style="height: 1.2em; vertical-align: middle;"/> Argo CD config:</div>
-<div style="font-size: 55%"><i class='fab fa-github'></i> <a href="https://github.com/cloudogu/gitops-playground/blob/0.3.0/argocd/argocd/argocd/values.ftl.yaml#L115-L126">github.com/cloudogu/gitops-playground/blob/0.3.0/argocd/argocd/argocd/values.ftl.yaml</a></div>
+<div style="font-size: 55%"><i class='fab fa-github'></i> <a href="https://github.com/cloudogu/gitops-playground/blob/0.11.0/argocd/argocd/argocd/values.ftl.yaml#L130-L142">github.com/cloudogu/gitops-playground/blob/0.11.0/argocd/argocd/argocd/values.ftl.yaml</a></div>
 <div style="font-size: 55%"><img data-src="images/Git-Icon-1788C.svg" style="height: 1.2em; vertical-align: middle;"/> <a href="http://scmm.localhost/scm/repo/argocd/argocd/code/sources/main/argocd/values.yaml/">scmm.localhost/scm/repo/argocd/argocd/code/sources/main/argocd/values.yaml</a></div>
 
 <br/>

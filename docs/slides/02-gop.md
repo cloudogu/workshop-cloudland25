@@ -1,4 +1,4 @@
-<a class="floatRight" style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland24">
+<a class="floatRight" style="margin: 0" title="Link to slides" href="https://cloudogu.github.io/workshop-cloudland25">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="80%" viewBox="0 0 1063.75 1241.0416666667"><g transform="scale(44.322916666667)" fill="#23a3dd"><path d="M1.3,28L22.6,28c0.7,0,1.3-0.6,1.3-1.3L24,1.4c0-0.7-0.6-1.3-1.3-1.3L1.4,0C0.7,0,0.1,0.6,0,1.3L0,26.6 C-0.1,27.4,0.5,28,1.3,28z M1,6c0-0.6,0.5-1,1-1L22,5c0.6,0,1,0.5,1,1L23,26c0,0.6-0.5,1-1,1L2,27c-0.6,0-1-0.5-1-1L1,6z"/></g>
     <g transform="translate(0,177.29166666667)" fill="#23a3dd">
 <g transform="translate(290.375,106.375) scale(3.9483333333333)"><rect width="6" height="6"/></g>
@@ -627,12 +627,13 @@ a GitOps-based operational stack (platform)
 <i class="fab fa-docker" style="color: #1D63ED;"></i></span>
 
 ```bash
-VERSION='0.3.0'
+VERSION='0.11.0'
 bash <(curl -s \
-  "https://raw.githubusercontent.com/cloudogu/gitops-playground/$VERSION/scripts/init-cluster.sh") \
+  "https://raw.githubusercontent.com/cloudogu/gitops-playground/$VERSION/scripts/git ") \
+   --docker-io-registry-mirror=https://mirror.gcr.io \
    && docker run --rm -t -u $(id -u) \
     -v ~/.config/k3d/kubeconfig-gitops-playground.yaml:/home/.kube/config \
-    --net=host \
+    --net=host  \
     ghcr.io/cloudogu/gitops-playground:$VERSION --yes --base-url=http://localhost --ingress-nginx \
       --argocd --monitoring --vault=dev --mailhog
 ```
