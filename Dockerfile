@@ -1,7 +1,7 @@
 FROM cloudogu/reveal.js:5.1.0-r1 as base
 
 FROM base as aggregator
-ENV TITLE='Code -> Cluster: Boosting development with a local kubernetes ops platform'
+ENV TITLE='GitOps Adventure: Advanced HandsOn'
 ENV THEME_CSS='cloudogu.css'
 #ENV THEME_CSS='cloudogu-black.css'
 ENV WIDTH='1280'
