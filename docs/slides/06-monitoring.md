@@ -112,6 +112,7 @@ ports:
 ```
 * Expose prometheus metrics from app:  
   <span style="font-size: 75%"><img data-src="images/Git-Icon-1788C.svg" style="height: 1.2em; vertical-align: middle;"/> <a href="http://scmm.localhost/scm/repo/argocd/petclinic-plain/code/sources/main/pom.xml">scmm.localhost/scm/repo/argocd/petclinic-plain/code/sources/main/pom.xml</a>
+  
 
 ```xml
 <dependency>
@@ -119,7 +120,8 @@ ports:
   <artifactId>micrometer-registry-prometheus</artifactId>
 </dependency>
 ```
-* Wait for build and deployment to staging
+<p style="font-size: 50%;">(maybe exists)</p>
+* Wait for build and deployment to staging   <img data-src="images/jenkins.svg" style="height: 1.2em; vertical-align: middle;" /> <a href="http://jenkins.localhost/job/example-apps/job/petclinic-plain/job/main/">Jenkins</a>
 
 
 
@@ -150,18 +152,18 @@ spec:
 
 
 <!-- .slide: style="font-size:79%" -->
-Create service monitor
+Create service monitor  
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: spring-petclinic-plain-monitor
-  namespace: example-apps-staging
+  namespace: monitoring
 spec:
   endpoints:
     - interval: 15s
       path: /actuator/prometheus
-      port: actuator
+      port: metrics
   namespaceSelector:
     matchNames:
       - example-apps-staging
